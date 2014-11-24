@@ -1,0 +1,26 @@
+.container-center-text {
+  text-align: center;
+}
+
+.container-right-text {
+  text-align: right;
+  float:right;
+}
+
+.float-to-right {
+  float:right;
+}
+
+.new-ckan-footer-logo {
+  display: block;
+  width: 68px;
+  height: 21px;
+  margin-top: 2px;
+  background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
+  text-indent: -900em;
+  float:right;
+}
+
+.logos-left-padding {
+ padding-left: 10px; 
+}
