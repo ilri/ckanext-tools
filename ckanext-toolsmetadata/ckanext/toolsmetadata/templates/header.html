@@ -1,0 +1,14 @@
+{% ckan_extends %}
+
+{% block links -%}
+{{ super() }}
+
+{# Uncomment the following section to load the vocabularies #}
+{#
+{% if h.toolsMetadata_createSubjectsVocab() %} {% endif %}
+{% if h.toolsMetadata_createThemesVocab() %} {% endif %}
+{% if h.toolsMetadata_createFormatsVocab() %} {% endif %}
+{% if h.toolsMetadata_createDataTypesVocab() %} {% endif %}
+#}
+
+{% endblock %}

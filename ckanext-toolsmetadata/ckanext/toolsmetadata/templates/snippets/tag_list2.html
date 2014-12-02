@@ -1,0 +1,23 @@
+{#
+render a list of tags linking to the dataset search page
+tags: list of tags
+#}
+{% set _class = _class or 'tag-list' %}
+<ul class="{{ _class }}">
+  {% for tag in tags %}
+    <li>
+      {% if vocabulary == "vocab_ILRI_vocsubjects" %}
+        <a class="tag" href="{% url_for controller='package', action='search', vocab_ILRI_vocsubjects=tag %}">{{ h.truncate(tag, 22) }}</a>
+      {% endif %}
+      {% if vocabulary == "vocab_ILRI_vocthemes" %}
+        <a class="tag" href="{% url_for controller='package', action='search', vocab_ILRI_vocthemes=tag %}">{{ h.truncate(tag, 22) }}</a>
+      {% endif %}
+      {% if vocabulary == "vocab_ILRI_vocformats" %}
+        <a class="tag" href="{% url_for controller='package', action='search', vocab_ILRI_vocformats=tag %}">{{ h.truncate(tag, 22) }}</a>
+      {% endif %}
+      {% if vocabulary == "vocab_ILRI_vocdatatypes" %}
+        <a class="tag" href="{% url_for controller='package', action='search', vocab_ILRI_vocdatatypes=tag %}">{{ h.truncate(tag, 22) }}</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

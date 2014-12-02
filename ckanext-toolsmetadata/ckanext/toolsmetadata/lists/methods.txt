@@ -1,0 +1,5 @@
+Accounts for interactions between agents
+Accounts for regime shifts
+Creates arenas of discourses
+Designs processes to resolve uncertainty
+Develops learning networks

@@ -1,0 +1,9 @@
+Subnational
+Individual
+Household
+National
+Regional
+Community or Village
+Continental
+Global
+Value chain

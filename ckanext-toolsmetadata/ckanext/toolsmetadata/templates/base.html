@@ -1,0 +1,28 @@
+{% ckan_extends %}
+
+{%- block custom_styles %}
+    {{ super() }}
+
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/themes/base/jquery.ui.core.css' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/themes/base/jquery.ui.theme.css' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/themes/base/jquery.ui.accordion.css' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/themes/base/jquery.ui.datepicker.css' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/themes/base/jquery.ui.tabs.css' %}
+
+{%- endblock %}
+
+
+{% block head_extras %}
+    {{ super() }}
+
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/external/globalize.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery-ui.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery.ui.core.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery.ui.widget.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery.ui.accordion.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery.ui.datepicker.js' %}
+    {% resource 'toolsMetadataResDir/jquery-ui-1.10.4/ui/jquery.ui.tabs.js' %}
+
+    {% resource 'toolsMetadataResDir/tools.js' %}
+
+{%- endblock %} 

@@ -1,0 +1,84 @@
+{% ckan_extends %}
+
+{% block package_basic_fields_url %}
+    {% set prefix = h.url_for(controller='package', action='read', id='') %}
+    {% set domain = h.url_for(controller='package', action='read', id='', qualified=true) %}
+    {% set domain = domain|replace("http://", "")|replace("https://", "") %}
+    {% set attrs = {'data-module': 'slug-preview-slug', 'data-module-prefix': domain, 'data-module-placeholder': '<tool>'} %}
+
+    {{ form.prepend('name', id='field-name', label=_('URL'), prepend=prefix, placeholder=_('eg. my-tool'), value=data.name, error=errors.name, attrs=attrs, is_required=true) }}
+{% endblock %}
+
+{% block package_basic_fields_description %}
+    {{ form.markdown('notes', id='field-notes', label=_('Description'), placeholder=_('eg. Some useful notes about the tool'), value=data.notes, error=errors.notes) }}
+
+    {{ form.input('tool_contact', id='tool_contact', label=_('Main contact'), value=data.tool_contact, classes=['control-full']) }}
+    {{ form.input('tool_contactemail', id='tool_contactemail', label=_('Main contact email'), value=data.tool_contactemail, classes=['control-full']) }}
+
+    {{ form.input('tool_altcontact', id='tool_altcontact', label=_('Alternate contact'), value=data.tool_altcontact, classes=['control-full']) }}
+    {{ form.input('tool_altcontactemail', id='tool_altcontactemail', label=_('Alternate contact email'), value=data.tool_altcontactemail, classes=['control-full']) }}
+
+    <div class="control-group">
+        <label for="tool_subjects" class="control-label">{{ _('Subjects') }}</label>
+        <div class="controls">
+            <select multiple id="tool_subjects" name="tool_subjects" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(1) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInArray(option,data.tool_subjects) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_themes" class="control-label">{{ _('Themes') }}</label>
+        <div class="controls">
+            <select multiple id="tool_themes" name="tool_themes" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(2) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInArray(option,data.tool_themes) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_formats" class="control-label">{{ _('Formats') }}</label>
+        <div class="controls">
+            <select multiple id="tool_formats" name="tool_formats" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(3) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInArray(option,data.tool_formats) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_datatypes" class="control-label">{{ _('Data type') }}</label>
+        <div class="controls">
+            <select multiple id="tool_datatypes" name="tool_datatypes" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(4) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInArray(option,data.tool_datatypes) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <hr>
+{% endblock %}
+
+{% block package_basic_fields_tags %}
+    {% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source': '/api/2/util/tag/autocomplete?incomplete=?'} %}
+    {{ form.input('tag_string', id='field-tags', label=_('AgroVoc Tags'), placeholder=_('eg. economy, health, government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
+{% endblock %}
+
+{% block package_metadata_fields_visibility %}
+    <div class="control-group">
+        <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
+        <div class="controls">
+            <select id="field-private" name="private">
+                {% for option in [('False', _('Public'))] %}
+                    <option value="{{ option[0] }}" {% if option[0] == data.private|trim %}selected="selected"{% endif %}>{{ option[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+{% endblock %}

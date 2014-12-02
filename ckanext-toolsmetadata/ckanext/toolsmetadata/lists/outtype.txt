@@ -1,0 +1,6 @@
+Graph
+Tabular
+Map
+Narrative
+Report
+Video

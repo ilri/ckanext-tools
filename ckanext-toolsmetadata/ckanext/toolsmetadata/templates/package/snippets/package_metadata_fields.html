@@ -1,0 +1,126 @@
+{% ckan_extends %}
+
+{% block package_metadata_fields %}
+    {{ form.input('tool_website', id='tool_website', label=_('Website'), value=data.tool_website, classes=['control-full']) }}
+    {{ form.input('tool_contriborg', id='tool_contriborg', label=_('Contributing organisations'), value=data.tool_contriborg, classes=['control-full']) }}
+
+    <div id="SoftwareAccordion">
+        <h3>Information only for software tools</h3>
+        <div>
+            {{ form.input('tool_developer', id='tool_developer', label=_('Developer'), value=data.tool_developer, classes=['control-full']) }}
+            {{ form.input('tool_language', id='tool_language', label=_('Language'), value=data.tool_language, classes=['control-full']) }}
+            {{ form.input('tool_year', id='tool_year', label=_('Year'), value=data.tool_year, classes=['control-full']) }}
+            {{ form.input('tool_lastupdate', id='tool_lastupdate', label=_('Last update'), value=data.tool_lastupdate, classes=['control-small']) }}
+            {{ form.input('tool_personresp', id='tool_personresp', label=_('Person responsible for updates'), value=data.tool_personresp, classes=['control-full']) }}
+            {{ form.input('tool_source', id='tool_source', label=_('Source code'), value=data.tool_source, classes=['control-full']) }}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_method" class="control-label">{{ _('Participatory approach / method to address complexity') }}</label>
+        <div class="controls">
+            <select multiple id="tool_method" name="tool_method" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(5) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_method) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_audiance" class="control-label">{{ _('Audiance') }}</label>
+        <div class="controls">
+            <select multiple id="tool_audiance" name="tool_audiance" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(6) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_audiance) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_cycle" class="control-label">{{ _('When in the project cycle is the tool useful') }}</label>
+        <div class="controls">
+            <select multiple id="tool_cycle" name="tool_cycle" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(7) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_cycle) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_gender" class="control-label">{{ _('Contribution to gender research') }}</label>
+        <div class="controls">
+            <select multiple id="tool_gender" name="tool_gender" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(8) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_gender) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_spscale" class="control-label">{{ _('Spatial scale') }}</label>
+        <div class="controls">
+            <select multiple id="tool_spscale" name="tool_spscale" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(9) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_spscale) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_orglevel" class="control-label">{{ _('Levels of organizations taken into account') }}</label>
+        <div class="controls">
+            <select multiple id="tool_orglevel" name="tool_orglevel" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(13) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_orglevel) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_datasource" class="control-label">{{ _('Source of data') }}</label>
+        <div class="controls">
+            <select multiple id="tool_datasource" name="tool_datasource" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(10) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_datasource) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_output" class="control-label">{{ _('Expected output of tool') }}</label>
+        <div class="controls">
+            <select multiple id="tool_output" name="tool_output" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(11) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_output) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="tool_assetype" class="control-label">{{ _('Type of assessment') }}</label>
+        <div class="controls">
+            <select multiple id="tool_assetype" name="tool_assetype" style="width:100%">
+                {% for option in h.toolsMetadata_loadArray(12) %}
+                    <option value="{{ option }}" {% if h.toolsMetadata_valueInComaString(option,data.tool_assetype) == True %}selected="selected"{% endif %}>{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+
+    {{ form.input('tool_guide', id='tool_guide', label=_('Tool manual/User guide'), value=data.tool_guide, classes=['control-full']) }}
+
+    {{ form.markdown('tool_citation', id='tool_citation', label=_('Citation'), placeholder=_('eg. How does this tool should be cited'), value=data.tool_citation, error=errors.notes) }}
+
+
+
+{% endblock %}

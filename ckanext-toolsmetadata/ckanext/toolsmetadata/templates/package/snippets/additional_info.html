@@ -1,0 +1,154 @@
+<section class="additional-info">
+    <h3>{{ _('Additional Information') }}</h3>
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+        <tr>
+            <th scope="col">{{ _('Field') }}</th>
+            <th scope="col">{{ _('Value') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% block package_additional_info %}
+            {% if pkg_dict.tool_website %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Website') }}</th>
+                    <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.tool_website, pkg_dict.tool_website, rel='foaf:homepage', target='_blank') }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_contriborg %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Contributing organisations') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_contriborg }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_contact %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Contact person') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.tool_contactemail, name=pkg_dict.tool_contact) }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_altcontact %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Alternate contact') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.tool_altcontactemail, name=pkg_dict.tool_altcontact) }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_developer %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Developer') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_developer }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_language %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Language') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_language }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_year %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Year') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_year }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_lastupdate %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Last update') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_lastupdate }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_personresp %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Person responsible for updates') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_personresp }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_source %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Source code') }}</th>
+                    <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.tool_source, pkg_dict.tool_source, rel='foaf:homepage', target='_blank') }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_method %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_method)  %}
+                    <th scope="row" class="dataset-label">{{ _('Participatory approach / method to address complexity') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_audiance %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_audiance)  %}
+                    <th scope="row" class="dataset-label">{{ _('Target audience') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_cycle %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_cycle)  %}
+                    <th scope="row" class="dataset-label">{{ _('When in the project cycle is the tool useful') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_gender %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_gender)  %}
+                    <th scope="row" class="dataset-label">{{ _('Contribution to gender research') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_spscale %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_spscale)  %}
+                    <th scope="row" class="dataset-label">{{ _('Spatial scale') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_orglevel %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_orglevel)  %}
+                    <th scope="row" class="dataset-label">{{ _('Levels of organizations taken into account') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_datasource %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_datasource)  %}
+                    <th scope="row" class="dataset-label">{{ _('Source of data') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_output %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_output)  %}
+                    <th scope="row" class="dataset-label">{{ _('Expected output of tool') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_assetype %}
+                <tr>
+                    {% set tglist = h.toolsMetadata_comaToArray(pkg_dict.tool_assetype)  %}
+                    <th scope="row" class="dataset-label">{{ _('Type of assessment') }}</th>
+                    <td class="dataset-details" property="dc:creator">{% snippet "package/snippets/tags3.html", tags=tglist %}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_guide %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Tool manual/User guide') }}</th>
+                    <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.tool_guide, pkg_dict.tool_guide, rel='foaf:homepage', target='_blank') }}</td>
+                </tr>
+            {% endif %}
+            {% if pkg_dict.tool_citation %}
+                <tr>
+                    <th scope="row" class="dataset-label">{{ _('Citation') }}</th>
+                    <td class="dataset-details" property="dc:creator">{{ pkg_dict.tool_citation }}</td>
+                </tr>
+            {% endif %}
+
+
+
+
+        {% endblock %}
+        </tbody>
+    </table>
+</section>
