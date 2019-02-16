@@ -1,0 +1,3 @@
+[submodule "ckanext-disqus"]
+	path = ckanext-disqus
+	url = https://github.com/okfn/ckanext-disqus
