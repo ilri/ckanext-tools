@@ -1,12 +1,20 @@
 {% ckan_extends %}
 
 {% block header_site_navigation %}
-        <nav class="section navigation">
+<!-- Im here -->
+{#
+{% if h.toolsMetadata_createSubjectsVocab() %} {% endif %}
+{% if h.toolsMetadata_createThemesVocab() %} {% endif %}
+{% if h.toolsMetadata_createFormatsVocab() %} {% endif %}
+{% if h.toolsMetadata_createDataTypesVocab() %} {% endif %}
+#}
+<!-- Im here end -->
+
+<nav class="section navigation">
           <ul class="nav nav-pills">
             {% block header_site_navigation_tabs %}
               {{ h.build_nav_main(
                 ('search', _('Tools')),
-                ('organizations_index', _('Organizations')),
                 ('group_index', _('Groups')),
                 ('about', _('About'))
               ) }}
@@ -27,7 +35,7 @@
       
       
 {% block header_account_notlogged %}
-              <li>{% link_for _('Log in as a publisher'), controller='user', action='login' %}</li>
+              <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
               {% if h.check_access('user_create') %}
                 <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
               {% endif %}

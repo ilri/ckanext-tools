@@ -59,6 +59,9 @@
                 <h3>AgroVoc Tags</h3>
                 {% snippet "package/snippets/tags.html", tags=pkg.tags %}
             {% endblock %}
+            
+            <hr>
+            {{ h.disqus_comments() }}
 
         </div>
         <div id="datasettab2">

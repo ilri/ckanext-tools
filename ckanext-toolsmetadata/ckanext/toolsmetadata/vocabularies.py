@@ -10,14 +10,14 @@ def createVocabulary(vocID,sourceFile):
     try:
         data = {'id': vocID}
         vocab = toolkit.get_action('vocabulary_show')(context, data)
-        print vocID + " vocabulary already exists. Loading list for update"
+        logging.info(vocID + " vocabulary already exists. Loading list for update")
         for tag in getArrayFromFile(sourceFile):
             data = {'name': fixTag(tag), 'vocabulary_id': vocab['id']}
             try:
                 toolkit.get_action('tag_create')(context, data)
-                print "Tag {0} added to vocab '{1}'".format(tag,vocID)
+                logging.info("Tag {0} added to vocab '{1}'".format(tag,vocID))
             except Exception as e:
-                print str(e)
+                logging.info(str(e))
                 pass
 
     except toolkit.ObjectNotFound:
@@ -32,7 +32,10 @@ def createVocabulary(vocID,sourceFile):
                 logging.info("Tag {0} added to vocab '{1}'".format(tag,vocID))
         except Exception as e:
             logging.info(str(e))
-            pass
+            return False
+    except Exception as e:
+        logging.info(str(e))
+
 
     return True
 
@@ -59,19 +62,19 @@ def deleteVocab(vocName,vocListFile):
 
 # This Helper function creates the subjects vocabulary from a text file
 def createSubjectsVocab():
-    return createVocabulary("ILRI_vocsubjects","/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/subjects.txt")
+    return createVocabulary("ILRI_vocsubjects","/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/subjects.txt")
 
 
 # This Helper function creates the themes vocabulary from a text file
 def createThemesVocab():
-     return createVocabulary("ILRI_vocthemes","/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/thematic_areas.txt")
+     return createVocabulary("ILRI_vocthemes","/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/thematic_areas.txt")
 
 
 # This Helper function creates the ftypesormats vocabulary from a text file
 def createFormatsVocab():
-     return createVocabulary("ILRI_vocformats","/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/formats.txt")
+     return createVocabulary("ILRI_vocformats","/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/formats.txt")
 
 
 # This Helper function creates the data types vocabulary from a text file
 def createDataTypesVocab():
-     return createVocabulary("ILRI_vocdatatypes","/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datatype.txt")
+     return createVocabulary("ILRI_vocdatatypes","/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datatype.txt")

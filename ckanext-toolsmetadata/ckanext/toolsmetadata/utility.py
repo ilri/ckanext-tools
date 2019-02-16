@@ -99,31 +99,31 @@ def stringToTags(key,data,error,context):
 
 def loadArray(arrayType):
     if arrayType == 1:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/subjects.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/subjects.txt")
     if arrayType == 2:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/thematic_areas.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/thematic_areas.txt")
     if arrayType == 3:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/formats.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/formats.txt")
     if arrayType == 4:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datatype.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datatype.txt")
     if arrayType == 5:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/methods.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/methods.txt")
     if arrayType == 6:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/audiance.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/audiance.txt")
     if arrayType == 7:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/cycle.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/cycle.txt")
     if arrayType == 8:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/gender.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/gender.txt")
     if arrayType == 9:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/spatype.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/spatype.txt")
     if arrayType == 10:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datasource.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/datasource.txt")
     if arrayType == 11:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/outtype.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/outtype.txt")
     if arrayType == 12:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/assesstype.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/assesstype.txt")
     if arrayType == 13:
-        return getArrayFromFile("/opt/ilri-tools/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/orglevels.txt")
+        return getArrayFromFile("/opt/ckan-tools/ckan/src/ckanext-toolsmetadata/ckanext/toolsmetadata/lists/orglevels.txt")
     return []
 
 def valueInArray(value,array):
