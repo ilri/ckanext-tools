@@ -13,7 +13,7 @@ setup(
     keywords='',
     author='Carlos Quiros',
     author_email='c.f.quiros@cgiar.org',
-    url='http://data.ilri.org/tools',
+    url='https://data.ilri.org/tools',
     license='GPL',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     namespace_packages=['ckanext', 'ckanext.toolsmetadata'],
